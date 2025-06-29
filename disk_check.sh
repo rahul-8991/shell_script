@@ -3,7 +3,7 @@
 
 # ===================== Configuration =====================
 THRESHOLD=5                                   # Alert threshold in %
-TO="kudikyalarahul8055@example.com"              # Recipient email
+TO="kudikyalarahul8055@gmail.com"              # Recipient email
 FROM="krahul4u.in@gmail.com"                 # Must match msmtp config
 HOSTNAME=$(hostname)
 # ========================================================
