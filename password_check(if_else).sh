@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Minimum password requirements"
-echo "At least 8 characters, 1 uppercase, 1 lowercase, 1 digit, 1 special character"
+echo -e "\e[31mMinimum password requirements\e[0m"
+echo -e "\e[31mAt least 8 characters, 1 uppercase, 1 lowercase, 1 digit, 1 special character\e[0m"
 
 # Prompt user for password (silent input)
 read -sp "Enter your password: " password
