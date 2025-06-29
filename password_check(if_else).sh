@@ -2,10 +2,10 @@
 
 # Ask user to enter password
 read -sp "Enter your password: " password
-echo
+echo $password
 
-# Minimum password requirements
-# At least 8 characters, 1 uppercase, 1 lowercase, 1 digit, 1 special character
+echo "Minimum password requirements"
+echo "At least 8 characters, 1 uppercase, 1 lowercase, 1 digit, 1 special character"
 
 if [[ ${#password} -lt 8 ]]; then
     echo "❌ Password must be at least 8 characters long."
