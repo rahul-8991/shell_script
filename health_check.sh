@@ -44,7 +44,7 @@ ps -ef | grep [p]ython | awk '{print $1, $2, $8}' >> "$ALERT_FILE"
 
 # === If disk usage exceeded, send mail ===
 if grep -q "⚠️ ALERT" "$ALERT_FILE"; then
-    SUBJECT="[ALERT] Server Health Check: Disk Usage > ${THRESHOLD}% on $HOSTNAME"
+    SUBJECT="[ALERT] Server Health Check: complete health check on $HOSTNAME"
 else
     SUBJECT="[INFO] Server Health Report from $HOSTNAME"
 fi
