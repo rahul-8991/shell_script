@@ -7,7 +7,7 @@ echo "At least 8 characters, 1 uppercase, 1 lowercase, 1 digit, 1 special charac
 read -sp "Enter your password: " password
 echo
 
-# Check length
+# Check password length
 if [ ${#password} -lt 8 ]; then
     echo "❌ Password must be at least 8 characters long."
 
@@ -23,8 +23,8 @@ elif ! [[ "$password" =~ [a-z] ]]; then
 elif ! [[ "$password" =~ [0-9] ]]; then
     echo "❌ Password must contain at least one digit."
 
-# Check for at least one special character (from a safe set)
-elif ! [[ "$password" =~ [@#$%^&*!_\-+=] ]]; then
+# ✅ Escape special characters properly (especially & and -)
+elif ! [[ "$password" =~ [@#\$%\^\&\*\!_\+\-=] ]]; then
     echo "❌ Password must contain at least one special character (@, #, $, %, etc.)."
 
 else
