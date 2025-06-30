@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex0 pipefail
+set -exo pipefail
 
 USERID=$(id -u)
 
