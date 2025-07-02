@@ -27,6 +27,7 @@ fi
 
 # validate functions takes input as exit status, what command they tried to install
 VALIDATE(){
+    #here $1 means $? in line 51 -> VALIDATE $? "$package", $? stores exit status of dnf install $package -y &>>$LOG_FILE
     if [ $1 -eq 0 ]
     then
         echo -e "Installing $2 is ... $G SUCCESS $N" | tee -a $LOG_FILE
