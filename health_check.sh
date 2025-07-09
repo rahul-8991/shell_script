@@ -4,7 +4,7 @@
 # Purpose: This script gives health status of the servers and sends email alert if disk usage > 5%
 #######################
 
-set -x            # Enable debug mode
+#set -x            # Enable debug mode
 set -e            # Exit if any command fails
 set -o pipefail   # Catch errors in piped commands
 
