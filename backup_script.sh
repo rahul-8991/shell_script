@@ -15,7 +15,7 @@ aws configure set aws_secret_access_key "$SECRET_KEY"
 aws configure set region "$REGION"
 
 aws s3 ls
-if[ $? -eq 0 ];
+if [ $? -eq 0 ];
     echo " $G ✅ AWS CLI is now configured with provided credentials. $N "
 else
     echo " $R AWS CLI is not configured properly give correct creds $N "
@@ -37,7 +37,7 @@ fi
 aws s3 sync "$SOURCE_DIR" "$DEST_DIR" \ --exclude "*" \ --include "*.log" \ --exact-timestamps
 
 
-if[ $? -eq 0 ];
+if [ $? -eq 0 ];
     echo -e "$G copying log files to S3 bucket is success $N "
 else
     echo -e "$R Copying log files is failed $N "
