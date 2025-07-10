@@ -16,13 +16,13 @@ aws configure set region "$REGION"
 
 aws s3 ls
 if [ $? -eq 0 ]; then
-    echo " $G ✅ AWS CLI is now configured with provided credentials. $N "
+    echo "$G ✅ AWS CLI is now configured with provided credentials. $N"
 else
-    echo " $R AWS CLI is not configured properly give correct creds $N "
+    echo "$R AWS CLI is not configured properly give correct creds $N"
     exit 1
 fi
 
-SOURCE_DIR="/root/DAWS_practice/shell_practice/temp_logs"
+SOURCE_DIR="/root/DAWS_practice/shell_practice/temp_logs/"
 DEST_DIR="s3://rahuldaws-bucket/logs_backup/"
 LOG_FILE="/var/log/s3_backup.log"
 EXCLUDE_FILE="/tmp/s3-exclude.txt"
@@ -38,9 +38,9 @@ aws s3 sync "$SOURCE_DIR" "$DEST_DIR" \ --exclude "*" \ --include "*.log" \ --ex
 
 
 if [ $? -eq 0 ]; then
-    echo -e "$G copying log files to S3 bucket is success $N "
+    echo -e "$G copying log files to S3 bucket is success $N"
 else
-    echo -e "$R Copying log files is failed $N "
+    echo -e "$R Copying log files is failed $N"
 fi
 
 
