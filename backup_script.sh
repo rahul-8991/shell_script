@@ -16,9 +16,9 @@ aws configure set region "$REGION"
 
 aws s3 ls
 if [ $? -eq 0 ]; then
-    echo "$G ✅ AWS CLI is now configured with provided credentials. $N"
+    echo -e "$G ✅ AWS CLI is now configured with provided credentials. $N"
 else
-    echo "$R AWS CLI is not configured properly give correct creds $N"
+    echo -e "$R AWS CLI is not configured properly give correct creds $N"
     exit 1
 fi
 
@@ -27,7 +27,7 @@ DEST_DIR="s3://rahuldaws-bucket/logs_backup/"
 LOG_FILE="/var/log/s3_backup.log"
 EXCLUDE_FILE="/tmp/s3-exclude.txt"
 
-if ls "$SOURCE_DIR "/*.log 1> /dev/null 2>&1; then
+if ls "$SOURCE_DIR"/*.log 1> /dev/null 2>&1; then
   echo "✅ .log files found in $SOURCE_DIR"
 else
   echo "❌ No .log files found in $SOURCE_DIR"
