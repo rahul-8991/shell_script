@@ -34,13 +34,7 @@ else
   exit 1
 fi
 
-#aws s3 sync "$SOURCE_DIR" "$DEST_DIR" --exclude "*" --include "*.log" --exact-timestamps
-
-find "$SOURCE_DIR" -type f -name "*.log" -size +0c | while read file; do
-  relative_path="${file#$SOURCE_DIR/}"
-  aws s3 cp "$file" "$DEST_DIR$relative_path" --exact-timestamps
-done
-
+aws s3 sync "$SOURCE_DIR" "$DEST_DIR" --exclude "*" --include "*.log" --exact-timestamps
 
 if [ $? -eq 0 ]; then
     echo -e "$G copying log files to S3 bucket is success $N"
