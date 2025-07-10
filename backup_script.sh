@@ -28,14 +28,13 @@ LOG_FILE="/var/log/s3_backup.log"
 EXCLUDE_FILE="/tmp/s3-exclude.txt"
 
 if ls "$SOURCE_DIR"/*.log 1> /dev/null 2>&1; then
-  echo "✅ .log files found in $SOURCE_DIR"
+  echo -e "$G ✅ .log files found in $SOURCE_DIR $N"
 else
-  echo "❌ No .log files found in $SOURCE_DIR"
+  echo -e "$R ❌ No .log files found in $SOURCE_DIR $N"
   exit 1
 fi
 
-aws s3 sync "$SOURCE_DIR" "$DEST_DIR" \ --exclude "*" \ --include "*.log" \ --exact-timestamps
-
+aws s3 sync "$SOURCE_DIR" "$DEST_DIR" --exclude "*" --include "*.log" --exact-timestamps
 
 if [ $? -eq 0 ]; then
     echo -e "$G copying log files to S3 bucket is success $N"
